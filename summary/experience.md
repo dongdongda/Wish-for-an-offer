@@ -54,11 +54,114 @@ md文件是我用markdown做的，推荐给大家，特别适合用来做笔记�
 
 （按部门和岗位真实出现频次排序，强推）
 - `https://www.algomooc.com/`
+### 2.2 秋招信息获取
+
+我目前接触到的主要有以下渠道
+
+- 学校的：北京邮电大学就业信息网、北邮就业创业微信公众号、论坛
+- offershow：关注校招薪水公众号，进大群可以获取很多公司的秋招信息
+- 自己关注的公司的官网
 
 ## 3 笔试
+
+### 3.1 笔试的意义
+
+大公司简历会很多，就会用笔试筛人，有的很重视必须好好做；有的就是更看面试一些。
+不管怎么说，笔试更高总是有些优势的，所以还是好好准备吧，
+
+### 3.1 笔试的一些注意事项
+
+- 提前熟悉笔试环境，一般是牛客，但也有别的
+- 有的公司运行使用本地IDE，有的不允许，这个要注意
+- 一定要注意输入输出，有的题要自己定义好输入输出而不是LeetCode上直接写函数就行，这个自己提前准备好各种输入输出怎么写，下面给出两个例子：
+
+
+```
+/* 第一行输入t代表t个测试用例，第二、三行分别输入一个n和n个数，以此类推。*/
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main()
+{
+	int t = 0;
+	cin >> t;
+	int num = 0;
+	vector<int> n;
+	vector<int> res;
+	vector<vector<int>> a;
+	for (int i = 0; i < t; i++)
+	{
+		cin >> num;
+		n.push_back(num);
+		a.push_back(vector<int>());
+		for (int j = 0; j < n[i]; j++)
+		{
+			cin >> num;
+			a[i].push_back(num);
+		}
+	}
+
+	for (int i = 0; i < t; i++)
+	{
+		cout << n[i] << endl;;
+		for (int j = 0; j < n[i]; j++)
+		{	
+			cout << a[i][j]<<endl;
+		}
+
+	}
+
+}
+```
+
+
+```
+/*输入不确定行数字，每行不确定个数*/
+#include <iostream>
+#include <vector>
+#include<sstream>
+using namespace std;
+
+int main()
+{
+	string str; //接收带空格的字符串
+	int num; //读入的数
+	vector<int> v; //一维数组存一行数
+	vector<vector<int> > nums; //二维数组存多行数
+	while (getline(cin, str))
+	{
+		istringstream iss(str);//从str中读入字符
+		v.clear();
+
+		while (iss >> num)
+		{
+			v.push_back(num);
+		}
+		nums.push_back(v);
+	}
+	for (int i = 0; i < nums.size(); ++i)
+	{
+		for (int j = 0; j < nums[i].size(); ++j)
+		{
+			cout << nums[i][j] << " ";
+		}
+		cout << endl;
+	}
+}
+```
+
+### 3.1 笔试其它
+
+我会在另外的文件夹下更新一些我认为比较好比较经典的题目。
 
 
 ## 4 面试
 
+面试的话不同面试官风格可能不一样，总结下来就一些几点吧：
 
+- 八股文基础（可能从一个点深挖）
+- 项目（可能会深挖细节，会问你难点以及你的解决思路）
+- 和岗位或者你本人相关的经历
 
+我会在另外的文件夹下更新一些面经和面试常考题。
